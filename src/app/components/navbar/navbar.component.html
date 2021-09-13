@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/']">Easy Resume</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto lead">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/dashboard']"
+            [routerLinkActive]="['active']"
+            routerLinkOptions="{ exact: true }"
+            >Dashboard</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/profile']"
+            [routerLinkActive]="['active']"
+            *ngIf="authService.loggedIn()"
+            routerLinkOptions="{ exact: true }"
+            >Profile</a
+          >
+          <!-- <img
+            src="{{ profileUrl }}"
+            [routerLink]="['/profile']"
+            [routerLinkActive]="['active']"
+            *ngIf="authService.loggedIn()"
+            routerLinkOptions="{ exact: true }"
+            style="background-color: white; height: 100px; width: 100px"
+          /> -->
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/login']"
+            *ngIf="!authService.loggedIn()"
+            [routerLinkActive]="['active']"
+            routerLinkOptions="{ exact: true }"
+            >Login</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/register']"
+            *ngIf="!authService.loggedIn()"
+            [routerLinkActive]="['active']"
+            routerLinkOptions="{ exact: true }"
+            >Register</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/login']"
+            *ngIf="authService.loggedIn()"
+            (click)="logoutUser()"
+            routerLinkOptions="{ exact: true }"
+            >Logout</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

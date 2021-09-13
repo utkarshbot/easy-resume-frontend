@@ -1,0 +1,320 @@
+<div class="container resume-form mb-5">
+  <form [formGroup]="resumeForm">
+    <div class="card p-3 mt-4 border-warning">
+      <h1 class="display-4">Personal Information</h1>
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="name"
+              id="name"
+              placeholder="name"
+            />
+            <label for="name">Full Name</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="role"
+              id="role"
+              placeholder="role"
+            />
+            <label for="role">Role</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              formControlName="email"
+              id="email"
+              placeholder="Email"
+            />
+            <label for="email">Email</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="number"
+              class="form-control"
+              formControlName="phone"
+              id="phone"
+              placeholder="phone"
+            />
+            <label for="phone">Phone Number</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="address"
+            id="address"
+            placeholder="address"
+          />
+          <label for="address">Address</label>
+        </div>
+      </div>
+    </div>
+    <div class="card p-3 mt-4 border-warning">
+      <h1 class="display-4">Social Links</h1>
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="linkdin"
+              id="linkdin"
+              placeholder="linkdin"
+            />
+            <label for="linkdin">Linkdin Profile</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="github"
+              id="github"
+              placeholder="github"
+            />
+            <label for="github">Github Profile</label>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="instagram"
+              id="instagram"
+              placeholder="instagram"
+            />
+            <label for="instagram">Instagram Profile</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- qualifications -->
+    <div class="card p-3 border border-warning mt-4">
+      <div class="row align-items-center">
+        <div class="col">
+          <h1 class="display-4">Education</h1>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-primary ms-auto" (click)="addEducation()">
+            Add
+          </button>
+        </div>
+      </div>
+      <div class="p-2">
+        <div
+          class="row"
+          formArrayName="education"
+          *ngFor="let item of getEducationControl(); let i = index"
+        >
+          <div class="col card p-2 mb-2 bg-light" [formGroupName]="i">
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="clg"
+                  id="clg"
+                  name="clg"
+                  placeholder="Collage Name"
+                />
+                <label for="clg">Collage Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="stream"
+                    id="stream"
+                    name="stream"
+                    placeholder="stream"
+                  />
+                  <label for="stream">Stream</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="marks"
+                    id="marks"
+                    name="marks"
+                    placeholder="marks"
+                  />
+                  <label for="marks">Marks</label>
+                </div>
+              </div>
+            </div>
+            <button
+              class="btn btn-danger ms-auto"
+              *ngIf="i !== 0"
+              (click)="removeEducation(i)"
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- certificates -->
+    <div class="card border border-warning p-3 mt-4">
+      <div class="row align-items-center">
+        <div class="col">
+          <h1 class="display-4">Certificates</h1>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-primary ms-auto" (click)="addCertificate()">
+            Add
+          </button>
+        </div>
+      </div>
+      <div class="p-2">
+        <div
+          class="row"
+          formArrayName="certificates"
+          *ngFor="let item of getCertificateControl(); let i = index"
+        >
+          <div class="col card p-2 mb-2 bg-light" [formGroupName]="i">
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="name"
+                  id="name"
+                  name="name"
+                  placeholder="Certificate Name"
+                />
+                <label for="name">Certificate Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">
+                <div class="form-floating mb-3">
+                  <textarea
+                    class="form-control"
+                    placeholder="Description"
+                    id="desc"
+                    name="desc"
+                    formControlName="desc"
+                  ></textarea>
+                  <label for="floatingTextarea">Description</label>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="form-floating mb-3">
+                  <input
+                    type="date"
+                    class="form-control"
+                    formControlName="date"
+                    id="date"
+                    name="date"
+                    placeholder="date"
+                  />
+                  <label for="date">Issued Date</label>
+                </div>
+              </div>
+            </div>
+            <button
+              class="btn btn-danger ms-auto"
+              *ngIf="i !== 0"
+              (click)="removeCertificate(i)"
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- hobbies -->
+    <div class="card p-3 mt-4 border-warning">
+      <h1 class="display-4">Additional Information</h1>
+
+      <div class="col">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="skills"
+            id="skills"
+            placeholder="skills"
+          />
+          <label for="skills">Skills</label>
+          <div id="help" class="form-text">
+            Enter skills comma ( , ) seperated
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="hobbies"
+              id="hobbies"
+              placeholder="hobbies"
+            />
+            <label for="hobbies">Hobbies</label>
+            <div id="help" class="form-text">
+              Enter Hobbies comma ( , ) seperated
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="languages"
+              id="languages"
+              placeholder="languages"
+            />
+            <label for="languages">Languages</label>
+            <div id="help" class="form-text">
+              Enter Languages comma ( , ) seperated
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="objective"
+            id="objective"
+            placeholder="objective"
+          />
+          <label for="objective">Objective</label>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-5" (click)="updateResume()">
+      Update Resume <i class="fas fa-pen"></i>
+    </button>
+  </form>
+</div>

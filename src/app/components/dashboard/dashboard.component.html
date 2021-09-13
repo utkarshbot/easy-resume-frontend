@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="display-3 text-dark">Welcome,{{ user.username }}</h1>
+  <hr />
+
+  <ng-container *ngIf="resumeFromService.ifExist(); else notCreated">
+    <h1 class="display-4 text-dark">
+      You have already filled the required details, head on and see your your
+      Resume
+    </h1>
+    <button class="btn btn-success" [routerLink]="['/resume']">
+      My Resume <i class="fas fa-long-arrow-alt-right"></i>
+    </button>
+    <button class="btn btn-primary ms-5" [routerLink]="['/edit-resume']">
+      <i class="far fa-edit"></i> Edit Details
+    </button>
+  </ng-container>
+  <ng-template #notCreated>
+    <h1 class="display-4 text-danger">
+      You don't have Resume, let's create it!
+    </h1>
+    <button class="btn btn-primary" [routerLink]="['/form']">
+      Create Resume <i class="fas fa-long-arrow-alt-right"></i>
+    </button>
+  </ng-template>
+</div>

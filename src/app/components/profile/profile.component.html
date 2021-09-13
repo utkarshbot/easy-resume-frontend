@@ -1,0 +1,60 @@
+<div class="container">
+  <h1 class="dispaly-4 text-dark">Your Profile</h1>
+  <hr />
+  <div class="row">
+    <div class="col-md-3">
+      <img src="{{ user.photoUrl }}" alt="" />
+    </div>
+    <div class="col-md-9">
+      <form>
+        <div class="form-group">
+          <label class="form-label" for="firstname">First Name</label>
+          <input
+            type="text"
+            name="firstname"
+            id="firstname"
+            [(ngModel)]="user.firstname"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="lastname">Last Name</label>
+          <input
+            type="text"
+            name="lasttname"
+            id="lastname"
+            [(ngModel)]="user.lastname"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            [(ngModel)]="user.email"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            [(ngModel)]="user.username"
+            class="form-control"
+            required
+          />
+        </div>
+        <button class="btn btn-warning mt-5" (click)="updateUser()">
+          <i class="fas fa-pen"></i> Update Profile
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

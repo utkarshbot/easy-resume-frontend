@@ -1,0 +1,39 @@
+.navbar-brand {
+  font-size: 1.6em;
+  color: rgb(165, 80, 245);
+  font-family: "Pacifico", cursive;
+}
+.navbar-brand:hover {
+  color: blueviolet;
+}
+nav {
+  background-color: #4400c6;
+}
+a.nav-link {
+  font-size: 1.2em;
+  font-family: "Bebas Neue", cursive;
+  color: white;
+}
+a.nav-link:visited {
+  color: blueviolet !important;
+}
+
+.navbar {
+  width: 100%;
+  z-index: 1;
+  background: inherit;
+  overflow: hidden;
+}
+
+.navbar:before {
+  content: "";
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 200px rgba(255, 255, 255, 1);
+  filter: blur(20%);
+}

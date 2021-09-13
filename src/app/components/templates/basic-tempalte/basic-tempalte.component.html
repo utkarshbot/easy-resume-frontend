@@ -1,0 +1,121 @@
+<div class="container resume" id="resume" style="max-width: 1000px">
+  <div class="row">
+    <!-- PROFILE-PHOTO -->
+    <div class="col-4 header-img">
+      <img
+        src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/82b8d8efd3b0ac6382b9d0d71a99c6cf9dcefa23/img/avatar.svg"
+        alt=""
+        class="img-fluid mx-auto d-block mt-3"
+      />
+    </div>
+    <div class="col-8 header-name">
+      <!-- HEADER-INFO -->
+      <h1 class="display-4">{{ resumeData.name }}</h1>
+      <h1 class="lead fs-1">{{ resumeData.role }}</h1>
+      <h1 class="lead fs-2 mt-4 heading">Objective</h1>
+      <p class="lead fs-4 mt-2">
+        {{ resumeData.objective }}
+      </p>
+    </div>
+    <div class="col-4 left">
+      <!-- LEFT INFO -->
+      <h1 class="fs-3 heading">Personal Information</h1>
+      <br />
+      <div class="row">
+        <h1 class="fs-4 heading">Email</h1>
+        <p class="lead fs-6">{{ resumeData.email }}</p>
+        <h1 class="fs-4 heading">Phone</h1>
+        <p class="lead fs-6">{{ resumeData.phone }}</p>
+        <h1 class="fs-4 heading">Address</h1>
+        <p class="lead fs-6">{{ resumeData.address }}</p>
+      </div>
+      <br /><br />
+      <hr />
+      <br /><br />
+      <h1 class="fs-3 heading">Social Links</h1>
+      <br />
+      <div class="row">
+        <h1 class="fs-4 heading">GitHub</h1>
+        <p class="fs-6">{{ resumeData.github }}</p>
+        <h1 class="fs-4 heading">Linkdin</h1>
+        <p class="fs-6">{{ resumeData.linkdin }}</p>
+        <h1 class="fs-4 heading">Instagram</h1>
+        <p class="fs-6">{{ resumeData.instagram }}</p>
+      </div>
+    </div>
+    <div class="col-8 p-4 right-content">
+      <!-- QUALIFICATION -->
+      <h1 class="lead fs-2 heading">Qualification</h1>
+      <div *ngFor="let edu of resumeData.education">
+        <div class="row">
+          <h1 class="fs-4 ms-2">{{ edu.clg }}</h1>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p class="lead fs-5 p-2">{{ edu.stream }}</p>
+          </div>
+          <div class="col text-end">
+            <p class="lead fs-5 p-2 fst-italic">{{ edu.marks }}</p>
+          </div>
+        </div>
+      </div>
+      <!-- CERTIFICATES -->
+      <h1 class="lead fs-2 heading">Certificates</h1>
+      <div *ngFor="let certificate of resumeData.certificates">
+        <div class="row">
+          <div class="col">
+            <p class="fs-4 p-2">{{ certificate.name }}</p>
+          </div>
+          <div class="col text-end">
+            <p class="lead fs-5 p-1 fst-italic">{{ certificate.date }}</p>
+          </div>
+          <div class="row">
+            <h1 class="lead fs-5 ms-2">{{ certificate.desc }}</h1>
+          </div>
+        </div>
+      </div>
+      <!-- SKILLS -->
+      <div class="row mt-5">
+        <h1 class="lead fs-2 heading">Skills</h1>
+        <div class="d-flex justify-content-evenly">
+          <button
+            disabled="disabled"
+            class="btn btn-danger"
+            *ngFor="let skill of skills"
+          >
+            {{ skill }}
+          </button>
+        </div>
+      </div>
+      <!-- HOBBIES -->
+      <div class="row mt-5">
+        <h1 class="lead fs-2 heading">Hobbies</h1>
+        <div class="d-flex justify-content-evenly">
+          <button
+            disabled="disabled"
+            class="btn btn-danger"
+            *ngFor="let hobby of hobbies"
+          >
+            {{ hobby }}
+          </button>
+        </div>
+      </div>
+      <!-- LANGUAGES -->
+      <div class="row mt-5">
+        <h1 class="lead fs-2 heading">Languages</h1>
+        <div class="row">
+          <div class="col" *ngFor="let language of languages">
+            <h1 class="fs-4 p-2">{{ language }}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row align-items-center mb-5">
+  <div class="col-2 m-auto">
+    <button class="btn btn-primary" (click)="download()">
+      Download Resume
+    </button>
+  </div>
+</div>

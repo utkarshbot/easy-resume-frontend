@@ -1,0 +1,81 @@
+<div class="back">
+  <div class="container pt-4" style="max-width: 60vw">
+    <div
+      class="alert alert-danger alert-dismissible fade show"
+      role="alert"
+      [style.visibility]="alert ? 'visible' : 'hidden'"
+    >
+      <p class="fs-6">{{ message }}</p>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+  </div>
+  <div
+    class="d-flex align-items-center justify-content-center p-4"
+    style="min-height: 84vh"
+  >
+    <div class="row">
+      <div class="col-md-6">
+        <ng-lottie [options]="options"></ng-lottie>
+      </div>
+      <div class="col-md-6 m-auto">
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="display-2 text-center" style="font-weight: 500">
+              Log in
+            </h1>
+          </div>
+          <form>
+            <div class="col col-md-6">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="email"
+                  id="email"
+                  placeholder="email"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+                <label for="email">Email Address</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  [(ngModel)]="password"
+                  [ngModelOptions]="{ standalone: true }"
+                  id="password"
+                  placeholder="password"
+                />
+                <label for="password">Password</label>
+              </div>
+              <button class="btn btn-dark w-75 ms-5" (click)="loginUser()">
+                Log In
+              </button>
+              <p class="text-center">
+                <a [routerLink]="['/register']"
+                  >Don't have account? Register here.</a
+                >
+              </p>
+              <p class="text-center">
+                <a [routerLink]="['/forgot-password']">forgot password?</a>
+              </p>
+              <div class="d-flex justify-content-evenly">
+                <button class="btn btn-danger" (click)="googleLogin()">
+                  <i class="fab fa-google"></i> Log In with Google
+                </button>
+                <button class="btn btn-primary" (click)="fbLogin()">
+                  <i class="fab fa-facebook"></i> Log In with Facebook
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+.resume {
+  height: 100% !important;
+}
+.header-name {
+  background: url("https://media.istockphoto.com/vectors/vector-background-vector-id1168080557");
+  border-bottom: 2px solid red;
+}
+.left {
+  padding-top: 5px;
+  background: #f5f5f5;
+  border-right: 1px solid red;
+}
+.header-img {
+  background: #eeeeee;
+  align-items: center;
+  border-bottom: 2px solid red;
+}
+.heading {
+  color: red;
+  font-weight: 300 !important;
+}
+img {
+  max-height: 250px;
+  max-width: 250px;
+  margin: auto;
+  object-fit: contain;
+  background-color: #f5f5f5;
+  border-radius: 100%;
+}
+hr {
+  margin-top: -5px;
+
+  background-color: red;
+}
+.right-content {
+  background-color: white;
+}
+.container {
+  margin-bottom: 100px;
+}

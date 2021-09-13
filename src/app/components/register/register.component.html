@@ -1,0 +1,152 @@
+<div class="register">
+  <div class="container pt-4 mb-0" style="max-width: 60vw">
+    <div
+      class="alert alert-danger alert-dismissible fade show"
+      role="alert"
+      [style.visibility]="alert ? 'visible' : 'hidden'"
+    >
+      <p class="fs-6">{{ message }}</p>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+  </div>
+  <div
+    class="d-flex align-items-center justify-content-center"
+    style="min-height: 80vh"
+  >
+    <div class="row">
+      <div class="col-md-4">
+        <ng-lottie [options]="options"></ng-lottie>
+      </div>
+      <div class="col-md-8 p-3">
+        <form>
+          <div class="row">
+            <div class="col">
+              <h1 class="display-2 text-center" style="font-weight: 500">
+                Create an Account
+              </h1>
+              <hr style="background-color: black" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="firstname"
+                  [(ngModel)]="firstname"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="First Name"
+                />
+                <label for="floatingInput">First Name</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="lastname"
+                  [(ngModel)]="lastname"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Last Name"
+                />
+                <label for="lastname">Last Name</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="age"
+                  minlength="2"
+                  maxlength="2"
+                  [(ngModel)]="age"
+                  [ngModelOptions]="{ standalone: true }"
+                  placeholder="Age"
+                />
+                <label for="age">Age</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input
+                  type="number"
+                  class="form-control"
+                  minlength="10"
+                  maxlength="10"
+                  [(ngModel)]="phone"
+                  [ngModelOptions]="{ standalone: true }"
+                  id="phone"
+                  placeholder="Phone Number"
+                />
+                <label for="phone">Phone Number</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              [(ngModel)]="email"
+              [ngModelOptions]="{ standalone: true }"
+              id="email"
+              placeholder="youremail@abc.com"
+            />
+            <label for="email">Email Address</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="password"
+              class="form-control"
+              [(ngModel)]="password"
+              [ngModelOptions]="{ standalone: true }"
+              id="password"
+              placeholder="password"
+            />
+            <label for="password">Password</label>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="username"
+                  id="username"
+                  placeholder="Username"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+                <label for="username">Username</label>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-dark w-100" (click)="registerUser()">
+            Sign Up
+          </button>
+        </form>
+        <div class="d-flex justify-content-evenly mt-3 mb-4">
+          <button class="btn btn-danger" (click)="googleSignUp()">
+            <i class="fab fa-google"> </i> Sign in with Google
+          </button>
+          <button class="btn btn-primary" (click)="fbSignUp()">
+            <i class="fab fa-facebook"> </i> Sign in with Facebook
+          </button>
+        </div>
+        <p class="text-center">
+          <a [routerLink]="['/login']" class="text-dark"
+            >Already a user? LogIn</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
