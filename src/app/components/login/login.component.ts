@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { GoogleLoginProvider, SocialAuthService,FacebookLoginProvider } from 'angularx-social-login';
@@ -12,7 +12,7 @@ import * as $ from 'jquery'
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit ,OnChanges {
+export class LoginComponent implements OnInit {
   email:string=""
   password:string=""
   alert = false
@@ -29,12 +29,6 @@ export class LoginComponent implements OnInit ,OnChanges {
   ngOnInit(): void {
       
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('hello')
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-    console.log(changes)
-  }
   loginUser(){
     if(this.email === '' || this.password === ''){
       this.alert = true
@@ -43,8 +37,9 @@ export class LoginComponent implements OnInit ,OnChanges {
       return false
     }else{
       const user = {
-        username:this.email,
-        password:this.password
+        email:this.email,
+        password:this.password,
+        social:false
       }
       this.login(user)
       return true
@@ -53,10 +48,11 @@ export class LoginComponent implements OnInit ,OnChanges {
   googleLogin(){
     this.socialAuth.signIn(GoogleLoginProvider.PROVIDER_ID)
     .then((data:any)=>{
-      console.log(data)
+      
       const user = {
-        password:data.id,
+        socialPassword:data.id,
         email:data.email,
+        social:true
       }
       this.login(user)
   }).catch((err)=>console.log(err))
@@ -64,10 +60,11 @@ export class LoginComponent implements OnInit ,OnChanges {
   fbLogin(){
     this.socialAuth.signIn(FacebookLoginProvider.PROVIDER_ID)
     .then((data:any)=>{
-      console.log(data)
+     
       const user = {
-        password:data.id,
+        socialPassword:data.id,
         email:data.email,
+        social:true
       }
       
       this.login(user)

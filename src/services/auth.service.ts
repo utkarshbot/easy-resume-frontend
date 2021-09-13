@@ -109,4 +109,9 @@ export class AuthService {
     headers.append('Content-type','application/json')
     return this.http.post(`${url}/reset-password/${id}`,password,{headers})
   }  
+  createPassword(id:any,password:any){
+    let headers = new HttpHeaders()
+    headers.append('Content-type','application/json')
+    return this.http.post(`${url}/create-password/${id}`,password,{headers})
+  }
 }

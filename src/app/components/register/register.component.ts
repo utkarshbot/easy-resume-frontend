@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
   password:string=""
   alert = false
   message = ''
+  social = false
   options : AnimationOptions = {
     path:'https://assets5.lottiefiles.com/packages/lf20_uya4kd2o.json'
   }
@@ -80,11 +81,12 @@ export class RegisterComponent implements OnInit {
           firstname:data.firstName,
           lastname:data.lastName,
           email:data.email,
-          password:data.id,
+          socialPassword:data.id,
           username:data.firstName,
-          photoUrl:data.photoUrl
+          photoUrl:data.photoUrl,
+          social : true
         }
-        console.log(user)
+      
         this.register(user)
     }).catch((err)=>console.log(err))
   }
@@ -94,11 +96,12 @@ export class RegisterComponent implements OnInit {
         firstname:data.firstName,
         lastname:data.lastName,
         email:data.email,
-        password:data.id,
+        socialPassword:data.id,
         username:data.firstName,
-        photoUrl:data.photoUrl
+        photoUrl:data.photoUrl,
+        social:true
       }
-      console.log(user)
+      
       this.register(user)
     }).catch((err)=>console.log(err))
   }
@@ -106,9 +109,13 @@ export class RegisterComponent implements OnInit {
   register(user:any){
     this.authService.registerUser(user).subscribe((data:any) => {
       if(data.success) {
-        //this.flashMessage.show('You are Registered !!', {cssClass: 'alert-success', timeout: 3000});
-        this.router.navigate(['/dashboard']);
         this.authService.storeUserData(data.token,data.user)
+        //this.flashMessage.show('You are Registered !!', {cssClass: 'alert-success', timeout: 3000});
+        if(data.user.social){
+          this.router.navigate(['/create-password']);
+        }else{
+          this.router.navigate(['/dashboard']);
+        }
       } else {
         this.alert = true
         this.closeAlert()

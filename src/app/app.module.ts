@@ -43,7 +43,7 @@ const appRoutes: Routes = [
   {path:'form',component:ResumeFormComponent, canActivate:[FormAuthGuard]},
   {path:'resume',component:BasicTempalteComponent, canActivate:[ResumeAuthGuard]},
   {path:'edit-resume',component:EditResumeComponent,canActivate:[EditFormAuthGuard]},
-  {path:'create-password',component:CreatePasswordComponent,canActivate:[LoginAuthGuard]},
+  {path:'create-password',component:CreatePasswordComponent},
   {path:'forgot-password',component:ForgotPasswordComponent},
   {path:`reset-password/:id/:token`,component:ResetPasswordComponent},
   {path:'error',component:ErrorComponent}
